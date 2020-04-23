@@ -20,8 +20,4 @@ before_install:
 script:
   - docker run stephengrider/react-test npm test -- --coverage
 
-deploy:
-  provider: script
-  script: bash ./deploy.sh
-  on:
-    branch: master
+
