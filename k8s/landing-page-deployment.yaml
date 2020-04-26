@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: landing-page-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: landingpage
+  template:
+    metadata:
+      labels:
+        component: landingpage
+    spec:
+      containers:
+        - name: landing-page
+          image: khoad/hr-landing-page
+          ports:
+            - containerPort: 80
+      imagePullSecrets:
+        - name: khd-registry-secret
