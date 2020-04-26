@@ -1,3 +1,4 @@
+#KHD additional part (26.04.2020)
 apiVersion: apps/v1
 kind: Deployment
 metadata:
