@@ -1,0 +1,27 @@
+#KHD additional part (26.04.2020)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fetch-worker-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: fetch-worker
+  template:
+    metadata:
+      labels:
+        component: fetch-worker
+    spec:
+      volumes:
+        - name: mccid-avatar-directory
+          persistentVolumeClaim:
+            claimName: hrdata-persistent-volume-claim
+      containers:
+        - name: hr-fetch-worker
+          image: khoad/hr-data-fetch
+          volumeMounts:
+            - name: mccid-avatar-directory
+              mountPath: /usr/app/MccID-Avatar
+      imagePullSecrets:
+        - name: khd-registry-secret
