@@ -25,6 +25,10 @@ spec:
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
+          - path: /landing/
+            backend:
+              serviceName: landingpage-cluster-ip-service
+              servicePort: 6000
     - host: www.mechkeybr.com
       http:
         paths:
@@ -36,3 +40,7 @@ spec:
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
+          - path: /landing/
+            backend:
+              serviceName: landingpage-cluster-ip-service
+              servicePort: 6000
